@@ -39,9 +39,9 @@ data = json.load(json_data)
 json_data.close()
 
 for idx, article in enumerate(data):
-    auteur = article['AUTHORS'].encode("utf-8")
-    title  = article['TITLE'].encode("utf-8")
-    text   = article['CONTENT'].encode("utf-8")
+    authors = article['AUTHORS'].encode("utf-8")
+    title   = article['TITLE'].encode("utf-8")
+    content = article['CONTENT'].encode("utf-8")
 
     url    = article['URL']
     source = article['SOURCE']
@@ -60,4 +60,4 @@ for idx, article in enumerate(data):
         date = None
 
     print '#%s - %s' %(idx, title)
-    Kamoulox(pub_date=date, authors=auteur, source=source, url=url, title=title, content=text)
+    Kamoulox(pub_date=date, authors=authors, source=source, url=url, title=title, content=content)
