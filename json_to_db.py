@@ -20,7 +20,7 @@ sqlite_file = "kamoulox.db"
 sqlhub.processConnection = connectionForURI('sqlite://%s' %os.path.join(sqlite_path, sqlite_file))
 
 # Schema
-class Dbrpbelge(SQLObject):
+class Kamoulox(SQLObject):
      pub_date = DateCol()
      authors  = StringCol()
      source   = StringCol()
@@ -29,7 +29,7 @@ class Dbrpbelge(SQLObject):
      content  = StringCol()
 
 # Let's create
-Dbrpbelge.createTable(ifNotExists=True)
+Kamoulox.createTable(ifNotExists=True)
 
 ### Parse and insert
 import json, time
@@ -60,4 +60,4 @@ for idx, article in enumerate(data):
         date = None
 
     print '#%s - %s' %(idx, title)
-    Dbrpbelge(pub_date=date, authors=auteur, source=source, url=url, title=title, content=text)
+    Kamoulox(pub_date=date, authors=auteur, source=source, url=url, title=title, content=text)
